@@ -20,6 +20,7 @@
 		A98A2529279586C20088453A /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98A2528279586C20088453A /* Video.swift */; };
 		A98A252B279586E50088453A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98A252A279586E50088453A /* Movie.swift */; };
 		A98A252F2795877F0088453A /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98A252E2795877F0088453A /* URLImage.swift */; };
+		A98A2535279812770088453A /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = A98A2534279812770088453A /* movies.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		A98A2528279586C20088453A /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		A98A252A279586E50088453A /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		A98A252E2795877F0088453A /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
+		A98A2534279812770088453A /* movies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +111,7 @@
 			children = (
 				A98A25212793665E0088453A /* Info.plist */,
 				A98A24F127922F640088453A /* VideoEditApp.swift */,
-				A98A24F327922F640088453A /* ContentView.swift */,
-				A98A252427937A380088453A /* VideoPlayer.swift */,
-				A98A252E2795877F0088453A /* URLImage.swift */,
-				A98A2522279371560088453A /* PlayerView.swift */,
+				A98A253027980F050088453A /* View */,
 				A98A252C279586FA0088453A /* Models */,
 				A98A252D279587100088453A /* ViewModels */,
 				A98A24F527922F660088453A /* Assets.xcassets */,
@@ -132,6 +131,7 @@
 		A98A250127922F660088453A /* VideoEditTests */ = {
 			isa = PBXGroup;
 			children = (
+				A98A2531279812230088453A /* fixtures */,
 				A98A250227922F660088453A /* VideoEditTests.swift */,
 			);
 			path = VideoEditTests;
@@ -161,6 +161,25 @@
 				A98A251F27935BBB0088453A /* ViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A98A253027980F050088453A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A98A24F327922F640088453A /* ContentView.swift */,
+				A98A252427937A380088453A /* VideoPlayer.swift */,
+				A98A252E2795877F0088453A /* URLImage.swift */,
+				A98A2522279371560088453A /* PlayerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A98A2531279812230088453A /* fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				A98A2534279812770088453A /* movies.json */,
+			);
+			path = fixtures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A98A2535279812770088453A /* movies.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

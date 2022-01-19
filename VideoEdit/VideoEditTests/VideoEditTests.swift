@@ -8,22 +8,47 @@
 import XCTest
 @testable import VideoEdit
 
+
 class VideoEditTests: XCTestCase {
+    
+    let viewModel = ViewModel()
+    
+    func testMovieApiResponse() throws{
+    
+    
+        let expectation = self.expectation(description: "Movie Response Parse Expectation")
+        
+        do {
+            
+            viewModel.fetch()
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+            XCTAssertNotNil(viewModel.movies)
+            expectation.fulfill()
+            
+        } catch  {
+            XCTFail("Error unit test")
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        
+        
+        
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        
+        guard let pathString = Bundle(for: type(of: self)).path(forResource: "movies", ofType: "json") else {
+            fatalError("json not found")
+        }
+
+        guard let json = try? String(contentsOfFile: pathString, encoding: .utf8) else {
+            fatalError("Unable to convert json to String")
+        }
+
+        let jsonData = json.data(using: .utf8)!
+        let movie = try! JSONDecoder().decode([Movie].self, from: jsonData)
+        
+        XCTAssertEqual("Movies", movie[0].name)
     }
 
     func testPerformanceExample() throws {

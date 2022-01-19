@@ -16,10 +16,13 @@ class ViewModel: ObservableObject {
     
     func fetch (){
         
+        // define URL string
         guard let url = URL(string: "https://searchpanel-dot-tapstory.uc.r.appspot.com/devtask") else {
             return
         }
         
+        
+        // Request url and response data
         let task = URLSession.shared.dataTask(with: url){ [weak self]
             data, _, error in
             
@@ -27,7 +30,7 @@ class ViewModel: ObservableObject {
                 return
             }
             
-            // Convert to JSON
+            // Convert from data to JSON
             do {
                 let movies = try
                     JSONDecoder().decode([Movie].self, from: data)
